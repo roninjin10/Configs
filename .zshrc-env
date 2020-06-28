@@ -1,0 +1,10 @@
+###
+###
+### ENV Variables
+### 
+###
+
+export CONFIG_PATH="/Users/williamcory/Code/Configs"
+export ZSH="/Users/williamcory/.oh-my-zsh"
+
+

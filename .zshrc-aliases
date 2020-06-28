@@ -1,0 +1,12 @@
+alias zshconfig="vim '${CONFIG_PATH}/.zshrc' && '${CONFIG_PATH}/configUpdate' && source ~/.zshrc"
+
+alias g="git"
+alias gs="g status"
+alias ga="g add"
+alias gc="g commit"
+alias gp="g push"
+alias gr="g pull"
+alias gch="g checkout"
+
+alias cdConfig="cd \"${CONFIG_PATH}\""
+
