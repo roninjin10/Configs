@@ -1,1 +1,2 @@
-cp ~/.zshrc ./.zshrc
+cp "${CONFIG_PATH}/.zshrc" ~/.zshrc
+
