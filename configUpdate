@@ -1,2 +1,2 @@
-cp "${CONFIG_PATH}/." ~
+cp -r "${CONFIG_PATH}/." ~
 

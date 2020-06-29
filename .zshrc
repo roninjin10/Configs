@@ -1,6 +1,6 @@
-source .zshrc-aliases
-source .zshrc-env
-source .zshrc-config
-source .zshrc-plugins
-source .zshrc-oh-my-zsh
+source zshrc/.zshrc-aliases
+source zshrc/.zshrc-env
+source zshrc/.zshrc-config
+source zshrc/.zshrc-plugins
+source zshrc/.zshrc-oh-my-zsh
 
