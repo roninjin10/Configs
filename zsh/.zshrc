@@ -31,20 +31,6 @@ alias cdConfig="cd \"${CONFIG_PATH}\""
 export CONFIG_PATH="/Users/williamcory/Code/Configs"
 export ZSH="/Users/williamcory/.oh-my-zsh"
 
-#   .oooooo.                          .o88o.  o8o             
-#  d8P'  `Y8b                         888 `"  `"'             
-# 888           .ooooo.  ooo. .oo.   o888oo  oooo   .oooooooo 
-# 888          d88' `88b `888P"Y88b   888    `888  888' `88b  
-# 888          888   888  888   888   888     888  888   888  
-# `88b    ooo  888   888  888   888   888     888  `88bod8P'  
-#  `Y8bood8P'  `Y8bod8P' o888o o888o o888o   o888o `8oooooo.  
-#                                                  d"     YD  
-#                                                  "Y88888P'
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
-
 # ooooooooo.   oooo                          o8o                       
 # `888   `Y88. `888                          `"'                       
 #  888   .d88'  888  oooo  oooo   .oooooooo oooo  ooo. .oo.    .oooo.o 
@@ -66,12 +52,29 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# oooooooooooo  o8o                        oooo      .oooooo..o               .                          
-# `888'     `8  `"'                        `888     d8P'    `Y8             .o8                          
-#  888         oooo  ooo. .oo.    .oooo.    888     Y88bo.       .ooooo.  .o888oo oooo  oooo  oo.ooooo.  
-#  888oooo8    `888  `888P"Y88b  `P  )88b   888      `"Y8888o.  d88' `88b   888   `888  `888   888' `88b 
-#  888    "     888   888   888   .oP"888   888          `"Y88b 888ooo888   888    888   888   888   888 
-#  888          888   888   888  d8(  888   888     oo     .d8P 888    .o   888 .  888   888   888   888 
-# o888o        o888o o888o o888o `Y888""8o o888o    8""88888P'  `Y8bod8P'   "888"  `V88V"V8P'  888bod8P' 
-                                                                                             888       
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#   .oooooo.                          .o88o.  o8o             
+#  d8P'  `Y8b                         888 `"  `"'             
+# 888           .ooooo.  ooo. .oo.   o888oo  oooo   .oooooooo 
+# 888          d88' `88b `888P"Y88b   888    `888  888' `88b  
+# 888          888   888  888   888   888     888  888   888  
+# `88b    ooo  888   888  888   888   888     888  `88bod8P'  
+#  `Y8bood8P'  `Y8bod8P' o888o o888o o888o   o888o `8oooooo.  
+#                                                  d"     YD  
+#                                                  "Y88888P'
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="true"
+
+# additional auto/tab complete
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+
+# tab complete dot files
+_comp_options+=(globdots)
+
 bindkey -v
