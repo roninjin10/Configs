@@ -16,6 +16,9 @@ alias gp="g push"
 alias gr="g pull"
 alias gch="g checkout"
 
+alias vim="nvim"
+alias vi="nvim"
+
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
 alias cdConfig="cd \"${CONFIG_PATH}\""
@@ -52,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #   .oooooo.                          .o88o.  o8o             
 #  d8P'  `Y8b                         888 `"  `"'             
@@ -77,4 +80,7 @@ compinit
 # tab complete dot files
 _comp_options+=(globdots)
 
+# vim mode
 bindkey -v
+# edit in actual vim buffer with control e
+bindkey '^e' edit-command-line
