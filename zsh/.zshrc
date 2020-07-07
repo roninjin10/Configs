@@ -18,6 +18,7 @@ alias gch="g checkout"
 
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
@@ -33,6 +34,7 @@ alias cdConfig="cd \"${CONFIG_PATH}\""
 
 export CONFIG_PATH="/Users/williamcory/Code/Configs"
 export ZSH="/Users/williamcory/.oh-my-zsh"
+export EDITOR=nvim
 
 # ooooooooo.   oooo                          o8o                       
 # `888   `Y88. `888                          `"'                       
