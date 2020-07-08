@@ -20,6 +20,15 @@ Plug 'ap/vim-css-color' " adds colors to things like #ec883a
 
 Plug 'ryanoasis/vim-devicons'
 
+" highlight letters when using f or t
+Plug 'unblevable/quick-scope'
+
+" do cs to change surrounding
+Plug 'tpope/vim-surround'
+
+" TMUX NAVIGATOR wtih ctrl-h ctrl-j ect.
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 set ignorecase " case insentitive searching
@@ -46,6 +55,15 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" quickscope
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg=#00C7DF'' gui=underline ctermfg=155
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81
+
+let g:qs_max_chars=150
 
 " Nerdtree
 let g:NERDTreeShowHidden = 1
