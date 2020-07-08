@@ -7,7 +7,8 @@
 #  .8'     `888.   888   888  d8(  888  o.  )88b 888    .o o.  )88b 
 # o88o     o8888o o888o o888o `Y888""8o 8""888P' `Y8bod8P' 8""888P' 
 #
-alias zshconfig="vim '${ZDOTDIR}/.zshrc' && source ~/.zshrc"
+alias zshconfig="nvim '${ZDOTDIR}/.zshrc' && source ~/.zshrc"
+alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias fantasystack="cd ~/Code/FantasyStack"
 
 alias g="git"
