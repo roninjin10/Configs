@@ -7,9 +7,10 @@
 #  888       o  8       `888       `888'              `888'      d8(  888   888      888  d8(  888   888   888  888  888    .o o.  )88b 
 # o888ooooood8 o8o        `8        `8'                `8'       `Y888""8o d888b    o888o `Y888""8o  `Y8bod8P' o888o `Y8bod8P' 8""888P' 
 
-export CONFIG_PATH="/Users/williamcory/Code/Configs"
 export ZSH="/Users/williamcory/.oh-my-zsh"
 export EDITOR="$VISUAL"
+export NVIM_CONFIG_PATH="~/.config/nvim/init.vim"
+export ZSH_CONFIG_PATH="$ZDOTDIR/.zshrc"
 
 #       .o.       oooo   o8o                                        
 #      .888.      `888   `"'                                        
@@ -40,8 +41,8 @@ alias vim="$VISUAL"
 alias vi="$VISUAL"
 alias v="$VISUAL"
 
-alias zshconfig="v '${ZDOTDIR}/.zshrc' && source ${ZDOTDIR}/.zshrc"
-alias nvimconfig="v ~/.config/nvim/init.vim"
+alias zshconfig="v $ZSH_CONFIG_PATH && source $ZSH_CONFIG_PATH"
+alias nvimconfig="v $NVIM_CONFIG_PATH"
 alias fantasystack="cd ~/Code/FantasyStack"
 
 
