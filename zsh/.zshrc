@@ -1,3 +1,4 @@
+
 #       .o.       oooo   o8o                                        
 #      .888.      `888   `"'                                        
 #     .8"888.      888  oooo   .oooo.    .oooo.o  .ooooo.   .oooo.o 
@@ -6,7 +7,8 @@
 #  .8'     `888.   888   888  d8(  888  o.  )88b 888    .o o.  )88b 
 # o88o     o8888o o888o o888o `Y888""8o 8""888P' `Y8bod8P' 8""888P' 
 #
-alias zshconfig="vim '${CONFIG_PATH}/.zshrc' && '${CONFIG_PATH}/configUpdate' && source ~/.zshrc"
+alias zshconfig="vim '${ZDOTDIR}/.zshrc' && source ~/.zshrc"
+alias fantasystack="cd ~/Code/FantasyStack"
 
 alias g="git"
 alias gs="g status"
@@ -22,8 +24,6 @@ alias vi="nvim"
 alias v="nvim"
 
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
-
-alias cdConfig="cd \"${CONFIG_PATH}\""
 
 # oooooooooooo ooooo      ooo oooooo     oooo    oooooo     oooo                     o8o             .o8       oooo                     
 # `888'     `8 `888b.     `8'  `888.     .8'      `888.     .8'                      `"'            "888       `888                     
@@ -47,6 +47,8 @@ export EDITOR=nvim
 #                                d"     YD                             
 #                                "Y88888P'
 
+
+
 plugins=(git)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -54,10 +56,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 ZSH_DISABLE_COMPFIX=true
-source $ZSH/oh-my-zsh.sh
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #   .oooooo.                          .o88o.  o8o             
@@ -107,3 +105,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+source $ZSH/oh-my-zsh.sh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
