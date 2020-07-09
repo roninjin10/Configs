@@ -10,6 +10,7 @@
 export ZSH="/Users/williamcory/.oh-my-zsh"
 export EDITOR="$VISUAL"
 export NVIM_CONFIG_PATH="~/.config/nvim/init.vim"
+export FANTASY_STACK_PATH="~/Code/FantasyStack"
 export ZSH_CONFIG_PATH="$ZDOTDIR/.zshrc"
 
 #       .o.       oooo   o8o                                        
@@ -42,9 +43,10 @@ alias vi="$VISUAL"
 alias v="$VISUAL"
 
 alias zshconfig="v $ZSH_CONFIG_PATH && source $ZSH_CONFIG_PATH"
+alias zshconfigsource="source $ZSH_CONFIG_PATH"
 alias nvimconfig="v $NVIM_CONFIG_PATH"
-alias fantasystack="cd ~/Code/FantasyStack"
-
+alias cdfantasystack="cd ~/Code/FantasyStack"
+alias cdconfig="cd ~/.config" 
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
 # ooooooooo.   oooo                          o8o                       
@@ -66,6 +68,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 ZSH_DISABLE_COMPFIX=true
+DISABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+setopt histignoredups
+setopt listtypes
+setopt nolistbeep
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #   .oooooo.                          .o88o.  o8o             
