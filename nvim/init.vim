@@ -31,13 +31,13 @@ Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-" Terminal Function to toggle and untoggle terminal
+" Go to 
 let g:term_buf = 0
 let g:term_win = 0
 function! TermToggle(height)
 	if win_gotoid(g:term_win)
 		hide
-	else
+	else 
 		botright new
 		exec "resize " . a:height
 		try
@@ -54,10 +54,13 @@ function! TermToggle(height)
 	endif
 endfunction
 
+let mapleader = ","
+
 "" Toggle terminal on/off (neovim)
 nnoremap <leader>t :call TermToggle(12)<CR>
 inoremap <leader>t <Esc>:call TermToggle(12)<CR>
 tnoremap <leader>t <C-\><C-n>:call TermToggle(12)<CR>
+tnoremap <leader>f :!
 
 " Terminal go back to normal mode
 tnoremap <Esc> <C-\><C-n>
@@ -78,8 +81,6 @@ set hidden
 
 syntax enable
 colorscheme onedark
-
-let mapleader = ","
 
 " Mappings
 inoremap jj <esc>
@@ -137,5 +138,4 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " lightline
 let g:lightline = { 'colorscheme': 'onedark' }
-
 

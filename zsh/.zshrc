@@ -31,7 +31,7 @@ alias gr="g pull"
 alias gch="g checkout"
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-  export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
+  export VISUAL="nvr -cc 'q' -cc vsplit -c ':normal \<leader\>,'--remote-wait +'set bufhidden=wipe'"
 else
   export VISUAL="nvim"
 fi
@@ -44,7 +44,6 @@ alias v="$VISUAL"
 alias zshconfig="v $ZSH_CONFIG_PATH && source $ZSH_CONFIG_PATH"
 alias nvimconfig="v $NVIM_CONFIG_PATH"
 alias fantasystack="cd ~/Code/FantasyStack"
-
 
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
