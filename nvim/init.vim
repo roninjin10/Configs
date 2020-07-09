@@ -1,3 +1,11 @@
+" auto-install vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  "autocmd VimEnter * PlugInstall
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'joshdick/onedark.vim'
@@ -16,7 +24,7 @@ Plug 'sbdchd/neoformat' " prettier
 
 Plug 'itchyny/lightline.vim' " formats the status bar where INSERT is
 
-Plug 'ap/vim-css-color' " adds colors to things like #ec883a
+Plug 'norcalli/nvim-colorizer.lua' " adds colors to things like #ec883a
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -29,7 +37,29 @@ Plug 'tpope/vim-surround'
 " TMUX NAVIGATOR wtih ctrl-h ctrl-j ect.
 Plug 'christoomey/vim-tmux-navigator'
 
+" helper to tell me my key bindings
+Plug 'liuchengxu/vim-which-key'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" Syntax highlighting for all the stuff
+Plug 'sheerun/vim-polyglot'
+
+Plug 'tpope/vim-commentary'
+
+" start screen for vim 
+Plug 'mhinz/vim-startify'
+
+Plug 'airblade/vim-rooter'
+
 call plug#end()
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
 
 " Go to 
 let g:term_buf = 0
@@ -56,15 +86,41 @@ endfunction
 
 let mapleader = ","
 
-"" Toggle terminal on/off (neovim)
+nnoremap <silent><leader> :silent WhichKey ','<CR>
+vnoremap <silent><leader> :silent <c-u> : silent WhichKeyVisual ','<CR>
+
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+let which_key_map = {}
+let g:which_key_sep = '→'
+let g:which_key_user_floating_win = 0
+
+
+call which_key#register(',', "g:which_key_map")
+
+" Toggle terminal on/off (neovim)
 nnoremap <leader>t :call TermToggle(12)<CR>
 inoremap <leader>t <Esc>:call TermToggle(12)<CR>
 tnoremap <leader>t <C-\><C-n>:call TermToggle(12)<CR>
+let g:which_key_map.t = {'name': 'terminal'}
 tnoremap <leader>f :!
 
 " Terminal go back to normal mode
 tnoremap <Esc> <C-\><C-n>
 tnoremap :q! <C-\><C-n>:q!<CR>
+
+" use tab in normal mode to switch buffers
+nnoremap <tab> :bnext<cr>
+nnoremap <S-tab> :bprevious<cr>
+
+"tabbing that persists in visual mode 
+vnoremap < <gv
+vnoremap > >gv
+
+"tab completion in insert mode
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 set ignorecase " case insentitive searching
 set smartcase " case-sensitive if expression contains uppercase
@@ -78,14 +134,39 @@ set re=0
 set mouse=a
 " automatically set hidden when switching buffers without saving 
 set hidden
-
 syntax enable
+set ruler
+" make splits sane
+set splitbelow 
+set splitright 
+" tabbing sane defaults
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set fileencoding=utf-8
+set clipboard=unnamedplus
+"faster completion
+set updatetime=300 
+" these two are recommended by coc
+set nobackup
+set noshowmode
+
+
+" persistent undo 
+if has('persistent_undo')
+    set undofile
+endif
+
 colorscheme onedark
 
 " Mappings
 inoremap jj <esc>
-nmap <leader>v :tabedit $NVIM_CONFIG_PATH<CR>
-nmap <leader>z :tabedit ~/.config/zsh/.zshrc<CR>
+let g:which_key_map.g = {'name': 'goto file'}
+nmap <leader>gv :tabedit $NVIM_CONFIG_PATH<CR>
+let g:which_key_map.g.v = 'vim config'
+nmap <leader>gz :tabedit ~/.config/zsh/.zshrc<CR>
+let g:which_key_map.g.z = 'zsh config'
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
